@@ -1,0 +1,19 @@
+{
+    "main" : {
+        "nama" : "Okta daffa ramadani",
+        "github" : "https://github.com/oktadafa",
+       "project":"https://github.com/mutiarahmatun",
+        "description" : "Saya seaorang Web Development (Backend Developer) menggunakan bahasa PHP dan laravel.",
+        "image" : "profilepic.jpg",
+       "bio" : "This is My Bio",
+       "phone" : "089649978678",
+       "email" : "oktadafasampang@gmail.com",
+       "address" : {
+            "street" : "Jl Naga Hitam",
+            "clty" : "cilacap",
+            "state" : "Central Java",
+            "zip" : "53273"
+        },
+        "resumedownload" : "https://github.com/oktadafa"
+    } 
+}
