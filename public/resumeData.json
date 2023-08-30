@@ -5,15 +5,45 @@
        "project":"https://github.com/mutiarahmatun",
         "description" : "Saya seaorang Web Development (Backend Developer) menggunakan bahasa PHP dan laravel.",
         "image" : "profilepic.jpg",
+        "contactmessage" : "Hello Ini Okta Daffa Ramadani",
        "bio" : "This is My Bio",
        "phone" : "089649978678",
        "email" : "oktadafasampang@gmail.com",
        "address" : {
             "street" : "Jl Naga Hitam",
-            "clty" : "cilacap",
+            "city" : "cilacap",
             "state" : "Central Java",
             "zip" : "53273"
         },
         "resumedownload" : "https://github.com/oktadafa"
-    } 
+    },
+    "resume" : {
+        "skillmessage" : "Sebagai seorang programmer tentu saya memiliki beberapa skill dan pengalaman dalam dunia kerja",
+        "education": [ 
+        {
+            "school" : "SMK Muhammadiyah Sampang",
+            "degree" : "Teknik Komputer dan Jaringan",
+            "graduated" : "Mei 2023",
+            "description" : "Saya berhasil menjadi juara 3 di lomba LKS tingkat kabupaten cilacap"
+        }
+    ],
+    "work" : [
+        {
+            "Company" : "RS Priscilla Medical Center",
+            "Time" : "3 Januari 2022 - 30 Januari 2022",
+            "Title" : "IT Support",
+            "description" : "Tugas saya sebagai IT Support yaitu memperbaiki PC yan mengalami masalah dan membantu apabila ada kerusakan pada jaringan" 
+        }    
+    ],
+    "skills" : [
+        {
+            "name" : "PHP",
+            "url" : "https://www.sololearn.com/certificates/CT-IYKUXA1T"
+        },
+        {
+            "name" : "JQuery",
+            "url" : "https://www.sololearn.com/certificates/CT-EL8VSLZI"
+        }
+    ]
+    }
 }

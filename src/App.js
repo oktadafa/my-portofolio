@@ -3,6 +3,8 @@ import ReactGA from "react-ga";
 import Header from "./Components/Header";
 import $ from "jquery";
 import About from "./Components/About";
+import Contact from "./Components/Contact";
+import Resume from "./Components/Resume";
 class App extends Component{
   constructor(props){
     super(props);
@@ -42,6 +44,8 @@ class App extends Component{
     <div className="App">
      <Header data={this.state.resumeData.main} />
    <About data={this.state.resumeData.main} />
+   <Resume data={this.state.resumeData.resume} />
+   <Contact data={this.state.resumeData.main} />
       </div>
     )
   }
