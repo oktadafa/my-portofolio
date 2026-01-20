@@ -5,17 +5,16 @@ import $ from "jquery";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Resume from "./Components/Resume";
-class App extends Component{
-  constructor(props){
+class App extends Component {
+  constructor(props) {
     super(props);
     this.state = {
       foo: "bar",
-      resumeData: {}
+      resumeData: {},
     };
 
-    ReactGA.initialize('UA-110570651-1');
-    ReactGA.pageview(window.location.pathname)
-
+    ReactGA.initialize("UA-110570651-1");
+    ReactGA.pageview(window.location.pathname);
   }
 
   getResumeData() {
@@ -23,31 +22,31 @@ class App extends Component{
       url: "./resumeData.json",
       dataType: "json",
       cache: false,
-      success: function(data) {
+      success: function (data) {
         this.setState({
-          resumeData : data
+          resumeData: data,
         });
       }.bind(this),
-      error: function(xhr, status, err) {
+      error: function (xhr, status, err) {
         console.log(err);
         alert(err);
-      }
-    })
+      },
+    });
   }
 
-  componentDidMount(){
-  this.getResumeData()
+  componentDidMount() {
+    this.getResumeData();
   }
 
-  render(){
-  return (
-    <div className="App">
-     <Header data={this.state.resumeData.main} />
-   <About data={this.state.resumeData.main} />
-   <Resume data={this.state.resumeData.resume} />
-   <Contact data={this.state.resumeData.main} />
+  render() {
+    return (
+      <div className="App">
+        <Header data={this.state.resumeData.main} />
+        <About data={this.state.resumeData.main} />
+        <Resume data={this.state.resumeData.resume} />
+        <Contact data={this.state.resumeData.main} />
       </div>
-    )
+    );
   }
 }
 export default App;
