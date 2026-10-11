@@ -1,27 +1,33 @@
-import React, { useState } from 'react';
-import { SectionLabel } from '../atoms/SectionLabel';
-import { StatusPip } from '../atoms/StatusPip';
-import { Badge } from '../atoms/Badge';
-import { Button } from '../atoms/Button';
-import { IconButton } from '../atoms/IconButton';
-import { FormField } from '../atoms/FormField';
-import { ContactChannel } from '../molecules/ContactChannel';
-import { contactImg } from '../../data/portfolio';
-import type { ContactFormData } from '../../types';
+import React, { useState } from "react";
+import { SectionLabel } from "../atoms/SectionLabel";
+import { StatusPip } from "../atoms/StatusPip";
+import { Badge } from "../atoms/Badge";
+import { Button } from "../atoms/Button";
+import { IconButton } from "../atoms/IconButton";
+import { FormField } from "../atoms/FormField";
+import { ContactChannel } from "../molecules/ContactChannel";
+import { contactImg } from "../../data/portfolio";
+import type { ContactFormData } from "../../types";
 
 const SUBJECT_OPTIONS = [
-  { value: 'Full-Time Engineering Opportunity', label: 'Full-Time Engineering Opportunity' },
-  { value: 'Consulting / Architecture Review', label: 'Consulting / Architecture Review' },
-  { value: 'Contract Web Development', label: 'Contract Web Development' },
-  { value: 'Open Source Collaboration', label: 'Open Source Collaboration' },
-  { value: 'Other Inquiry', label: 'Other Inquiry' },
+  {
+    value: "Full-Time Engineering Opportunity",
+    label: "Full-Time Engineering Opportunity",
+  },
+  {
+    value: "Consulting / Architecture Review",
+    label: "Consulting / Architecture Review",
+  },
+  { value: "Contract Web Development", label: "Contract Web Development" },
+  { value: "Open Source Collaboration", label: "Open Source Collaboration" },
+  { value: "Other Inquiry", label: "Other Inquiry" },
 ];
 
 const EMPTY_FORM: ContactFormData = {
-  name: '',
-  email: '',
-  subject: '',
-  message: '',
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
 };
 
 export const ContactSection: React.FC = () => {
@@ -45,33 +51,28 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="w-full py-space-xl scroll-mt-24"
-    >
+    <section id="contact" className="w-full py-6 scroll-mt-24">
       {/* ── Section header ──────────────────────────────── */}
-      <div className="flex flex-col gap-space-sm mb-space-xl">
+      <div className="flex flex-col gap-4 mb-4">
         <SectionLabel label="Initialization" />
-        <h2 className="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg font-bold text-on-surface tracking-tight">
+        <h2 className="font-headline-lg-mobile text-headline-lg-mobile md:font-semibold md:text-3xl font-bold text-on-surface tracking-tight">
           Let's build something extraordinary together.
         </h2>
-        <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl">
-          Have a project in mind or want to explore a collaboration? Pick the channel that works
-          best for you — I&apos;m always open to meaningful conversations.
+        <p className="font-semibold text-on-surface-variant max-w-2xl">
+          Have a project in mind or want to explore a collaboration? Pick the
+          channel that works best for you — I&apos;m always open to meaningful
+          conversations.
         </p>
       </div>
 
       {/* ── 12-col grid ─────────────────────────────────── */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
-
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-6 items-start">
         {/* ── Left column (col-span-5) ──────────────────── */}
-        <div className="lg:col-span-5 flex flex-col gap-space-lg">
-
+        <div className="lg:col-span-5 flex flex-col gap-4">
           {/* Box 1 — Priority Direct Channels */}
-          <div className="p-space-lg rounded-2xl bg-surface-container-low shadow-md flex flex-col gap-space-md">
-
+          <div className="p-6 rounded-2xl bg-surface-container-low shadow-md flex flex-col gap-4">
             {/* Header */}
-            <div className="flex items-center gap-space-sm">
+            <div className="flex items-center gap-4">
               <StatusPip color="primary" />
               <span className="font-semibold text-on-surface font-body-md text-body-md">
                 Priority Direct Channels
@@ -79,9 +80,10 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* Body text */}
-            <p className="font-body-sm text-body-sm text-on-surface-variant">
-              For fastest response, reach me directly through WhatsApp or email. I monitor
-              these channels daily and typically reply within a few hours during business hours.
+            <p className="font-medium text-sm text-on-surface-variant">
+              For fastest response, reach me directly through WhatsApp or email.
+              I monitor these channels daily and typically reply within a few
+              hours during business hours.
             </p>
 
             {/* WhatsApp CTA */}
@@ -89,7 +91,7 @@ export const ContactSection: React.FC = () => {
               href="https://wa.me/6281234567890"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-space-sm px-space-md py-space-md rounded-xl bg-primary-container text-on-primary font-semibold hover:opacity-95 transition-all shadow-md"
+              className="w-full flex items-center justify-center gap-4 px-4 py-4 rounded-xl bg-primary-container text-on-primary font-semibold hover:opacity-95 transition-all shadow-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +108,7 @@ export const ContactSection: React.FC = () => {
             <ContactChannel label="Direct Email" value="hello@oktadaffa.dev" />
 
             {/* Footer row */}
-            <div className="flex items-center justify-between pt-space-xs">
+            {/* <div className="flex items-center justify-between pt-2">
               <div className="flex items-center gap-space-xs text-on-surface-variant font-code-md text-code-md">
                 <span className="material-symbols-outlined text-base leading-none text-primary">
                   bolt
@@ -125,15 +127,14 @@ export const ContactSection: React.FC = () => {
                   href="https://linkedin.com/in/oktadaffa"
                 />
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Box 2 — Primary Timezone */}
-          <div className="p-space-lg rounded-2xl bg-surface-container-low shadow-md flex flex-col gap-space-sm">
-
+          <div className="p-6 rounded-2xl bg-surface-container-low shadow-md flex flex-col gap-4">
             {/* Header */}
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-space-sm">
+              <div className="flex items-center gap-4">
                 <span className="material-symbols-outlined text-base leading-none text-primary">
                   public
                 </span>
@@ -149,15 +150,15 @@ export const ContactSection: React.FC = () => {
               className="w-full h-32 rounded-xl bg-surface-container-highest relative flex items-center justify-center overflow-hidden"
               style={{
                 backgroundImage: `url(${contactImg})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                backgroundSize: "cover",
+                backgroundPosition: "center",
               }}
             >
               {/* Overlay for readability */}
               <div className="absolute inset-0 bg-surface/60" />
 
               {/* Badge */}
-              <div className="relative flex items-center gap-space-sm px-space-md py-space-sm rounded-full bg-surface-container/90 border border-surface-container-high shadow-md">
+              <div className="relative flex items-center gap-4 px-4 py-2 rounded-full bg-surface-container/90 border border-surface-container-high shadow-md">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
@@ -171,8 +172,7 @@ export const ContactSection: React.FC = () => {
         </div>
 
         {/* ── Right column (col-span-7) — Dispatch Message form ── */}
-        <div className="lg:col-span-7 bg-surface-container-low rounded-2xl p-space-lg shadow-md flex flex-col gap-space-md">
-
+        <div className="lg:col-span-7 bg-surface-container-low rounded-2xl p-6 shadow-md flex flex-col gap-4">
           {/* Card header */}
           <div className="flex items-center justify-between">
             <h3 className="font-headline-sm text-headline-sm font-semibold text-on-surface">
@@ -189,10 +189,13 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="flex flex-col gap-space-md" noValidate>
-
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-4"
+            noValidate
+          >
             {/* 2-col name + email */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FormField
                 id="contact-name"
                 type="text"
@@ -200,7 +203,7 @@ export const ContactSection: React.FC = () => {
                 placeholder="e.g. Alex Henderson"
                 required
                 value={form.name}
-                onChange={handleField('name')}
+                onChange={handleField("name")}
               />
               <FormField
                 id="contact-email"
@@ -209,7 +212,7 @@ export const ContactSection: React.FC = () => {
                 placeholder="alex@company.com"
                 required
                 value={form.email}
-                onChange={handleField('email')}
+                onChange={handleField("email")}
               />
             </div>
 
@@ -220,7 +223,7 @@ export const ContactSection: React.FC = () => {
               label="Project Scope or Topic"
               placeholder="Select a topic…"
               value={form.subject}
-              onChange={handleField('subject')}
+              onChange={handleField("subject")}
               options={SUBJECT_OPTIONS}
             />
 
@@ -233,34 +236,35 @@ export const ContactSection: React.FC = () => {
               required
               rows={5}
               value={form.message}
-              onChange={handleField('message')}
+              onChange={handleField("message")}
             />
 
             {/* Submit row */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md pt-space-xs">
-              <p className="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-2">
+              <p className="font-medium text-sm text-on-surface-variant ">
                 Your message is transmitted securely. No spam — ever.
               </p>
               <Button
                 variant="primary"
                 size="md"
                 type="submit"
-                icon="send"
-                iconPosition="right"
+                // icon="send"
+                // iconPosition="right"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending…' : 'Send Message'}
+                {isSubmitting ? "Sending…" : "Send Message"}
               </Button>
             </div>
 
             {/* Success alert */}
             {isSubmitted && (
-              <div className="flex items-center gap-space-sm p-space-md rounded-xl bg-primary/10 text-primary border border-primary/20">
-                <span className="material-symbols-outlined text-[20px] leading-none">
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-primary/10 text-primary border border-primary/20">
+                {/* <span className="material-symbols-outlined text-[20px] leading-none">
                   check_circle
-                </span>
+                </span> */}
                 <span className="font-body-sm text-body-sm font-semibold">
-                  Message dispatched successfully! I&apos;ll get back to you within 24 hours.
+                  Message dispatched successfully! I&apos;ll get back to you
+                  within 24 hours.
                 </span>
               </div>
             )}
