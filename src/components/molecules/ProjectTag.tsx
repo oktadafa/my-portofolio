@@ -1,27 +1,27 @@
-import React from 'react';
+import React from "react";
 
 export interface ProjectTagProps {
   label: string;
-  color?: 'primary' | 'secondary' | 'tertiary' | 'muted';
+  color?: "primary" | "secondary" | "tertiary" | "muted";
 }
 
-const colorMap: Record<NonNullable<ProjectTagProps['color']>, string> = {
-  primary: 'text-primary bg-surface-container-high',
-  secondary: 'text-secondary bg-surface-container-high',
-  tertiary: 'text-tertiary bg-surface-container-high',
-  muted: 'text-on-surface-variant bg-surface-container-high',
+const colorMap: Record<NonNullable<ProjectTagProps["color"]>, string> = {
+  primary: "text-primary bg-surface-container-high",
+  secondary: "text-secondary bg-surface-container-high",
+  tertiary: "text-tertiary bg-surface-container-high",
+  muted: "text-on-surface-variant bg-surface-container-high",
 };
 
 export const ProjectTag: React.FC<ProjectTagProps> = ({
   label,
-  color = 'primary',
+  color = "primary",
 }) => {
   return (
     <span
       className={[
-        'px-space-xs py-0.5 rounded font-code-md text-code-md',
+        "px-1 py-0.5 rounded font-medium text-md",
         colorMap[color],
-      ].join(' ')}
+      ].join(" ")}
     >
       {label}
     </span>
