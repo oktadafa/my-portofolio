@@ -10,7 +10,7 @@ export function PortfolioPage() {
     <div className="min-h-screen bg-background text-on-surface font-geist">
       <Header />
       <main className="w-full pt-20 bg-background min-h-screen">
-        <div className="max-w-[1440px] mx-auto px-margin py-5">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-margin py-5">
           {/* Ambient radial glow lights */}
           <div className="fixed top-20 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[128px] pointer-events-none -z-10" />
           <div className="fixed top-[600px] right-10 w-96 h-96 bg-secondary/10 rounded-full blur-[140px] pointer-events-none -z-10" />

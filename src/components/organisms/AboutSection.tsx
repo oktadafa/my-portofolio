@@ -300,14 +300,14 @@ const TECH_CATEGORIES: TechCategory[] = [
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="w-full py-8 scroll-mt-24">
+    <section id="about" className="w-full py-6 sm:py-8 scroll-mt-24">
       {/* Section Header */}
-      <div className="flex flex-col gap-y-2 mb-3">
+      <div className="flex flex-col gap-y-1.5 sm:gap-y-2 mb-4 sm:mb-3">
         <SectionLabel label="Profile & Capabilities" color="primary" />
-        <h2 className="font-bold text-4xl text-on-surface">
+        <h2 className="font-bold text-xl sm:text-4xl text-on-surface tracking-tight">
           Engineered for real-world reliability.
         </h2>
-        <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        <p className="text-xs sm:font-body-md sm:text-body-md text-on-surface-variant max-w-2xl leading-relaxed">
           Bridging the divide between high-fidelity user interactions and
           hardened cloud backends. Here is a snapshot of my architectural
           compass and technical toolkit.
@@ -317,25 +317,28 @@ export const AboutSection: React.FC = () => {
       {/* 12-Column Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
         {/* ── Left: Bio Card (col-span-5) ── */}
-        <div className="lg:col-span-5 bg-surface-container-low rounded-2xl p-4 shadow-md flex flex-col gap-4">
+        <div className="lg:col-span-5 bg-surface-container-low rounded-2xl p-4 shadow-md flex flex-col gap-3.5 sm:gap-4">
           {/* Profile Row */}
           <div className="flex items-center gap-x-3">
-            <div className="relative w-16 h-16 rounded-full overflow-hidden bg-surface-container-highest shadow-inner flex-shrink-0">
-              <img
-                src={profileImg}
-                alt="Okta Daffa Ramadani"
-                className="w-full h-full object-cover"
-              />
+            <div className="relative flex-shrink-0">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-full overflow-hidden bg-surface-container-highest shadow-inner">
+                <img
+                  src={profileImg}
+                  alt="Okta Daffa Ramadani"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="sm:hidden absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-primary ring-2 ring-surface-container-low" />
             </div>
-            <div className="flex flex-col">
-              <h3 className="font-headline-sm text-headline-sm text-on-surface">
+            <div className="flex flex-col min-w-0">
+              <h3 className="text-sm sm:font-headline-sm sm:text-headline-sm font-semibold text-on-surface truncate">
                 Okta Daffa Ramadani
               </h3>
-              <span className="font-code-md text-code-md text-primary">
+              <span className="text-xs sm:font-code-md sm:text-code-md text-primary truncate font-medium">
                 Fullstack Developer
               </span>
-              <span className="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
-                <span className="material-symbols-outlined text-[14px]">
+              <span className="text-[11px] sm:font-body-sm sm:text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5 truncate">
+                <span className="material-symbols-outlined text-[13px] sm:text-[14px]">
                   location_on
                 </span>
                 Jakarta
@@ -344,7 +347,7 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* Bio Text */}
-          <div className="flex flex-col gap-4 font-medium  text-on-surface-variant leading-relaxed">
+          <div className="flex flex-col gap-3 sm:gap-4 text-xs sm:text-base font-medium text-on-surface-variant leading-relaxed">
             <p>
               With over five years of active production engineering, I build
               client-facing web applications where latency is non-negotiable and
@@ -357,16 +360,29 @@ export const AboutSection: React.FC = () => {
               services that scale gracefully from Day 1 prototypes to millions
               of requests.
             </p>
-            <p className="text-on-surface font-medium italic">
+            <p className="px-3 py-2 sm:p-0 rounded-lg sm:rounded-none bg-surface-container sm:bg-transparent text-primary sm:text-on-surface font-mono sm:font-geist text-xs sm:text-base font-medium italic">
               "Obsessed with DX, accessibility, and sub-second load times."
             </p>
+          </div>
+
+          {/* Mobile Bio Footer Badges */}
+          <div className="flex sm:hidden items-center justify-between pt-1 font-mono text-[10px] text-outline">
+            <span className="flex items-center gap-1 text-on-surface-variant">
+              <span className="material-symbols-outlined text-xs text-primary">
+                verified
+              </span>
+              Clean Architecture Certified
+            </span>
+            <span className="px-2 py-0.5 rounded bg-surface-container-high font-semibold text-on-surface-variant">
+              ODR // 2025
+            </span>
           </div>
         </div>
 
         {/* ── Right: Tech Stack (col-span-7) ── */}
         <div
           id="skills"
-          className="lg:col-span-7 flex flex-col gap-4 scroll-mt-24"
+          className="lg:col-span-7 flex flex-col gap-3 sm:gap-4 scroll-mt-24"
         >
           {TECH_CATEGORIES.map((cat) => {
             const { text: badgeText, bg: badgeBg } =
@@ -375,31 +391,31 @@ export const AboutSection: React.FC = () => {
             return (
               <div
                 key={cat.title}
-                className="bg-surface-container-low rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-surface-container-low rounded-2xl p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-shadow"
               >
                 {/* Card Header */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-3">
+                <div className="flex items-center justify-between gap-2 mb-3 sm:mb-4">
+                  <div className="flex items-center gap-2 sm:gap-3 min-w-0">
                     <div
-                      className={`w-8 h-8 rounded-lg ${cat.categoryIconBg} flex items-center justify-center ${cat.categoryIconText}`}
+                      className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg ${cat.categoryIconBg} flex items-center justify-center ${cat.categoryIconText} shrink-0`}
                     >
-                      {/* <span className="material-symbols-outlined text-[20px]">
+                      <span className="sm:hidden material-symbols-outlined text-[18px]">
                         {cat.categoryIcon}
-                      </span> */}
+                      </span>
                     </div>
-                    <h4 className="font-semibold  text-on-surface">
+                    <h4 className="font-semibold text-xs sm:text-base text-on-surface truncate">
                       {cat.title}
                     </h4>
                   </div>
                   <span
-                    className={`font-semibold text-xs uppercase ${badgeText} ${badgeBg} px-2 py-0.5 rounded`}
+                    className={`font-semibold text-[10px] sm:text-xs uppercase ${badgeText} ${badgeBg} px-2 py-0.5 rounded shrink-0`}
                   >
                     {cat.badge}
                   </span>
                 </div>
 
                 {/* Tech Badge Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
                   {cat.items.map((item) => (
                     <TechBadge
                       key={item.label}

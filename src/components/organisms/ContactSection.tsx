@@ -53,12 +53,12 @@ export const ContactSection: React.FC = () => {
   return (
     <section id="contact" className="w-full py-6 scroll-mt-24">
       {/* ── Section header ──────────────────────────────── */}
-      <div className="flex flex-col gap-4 mb-4">
+      <div className="flex flex-col gap-1.5 sm:gap-4 mb-4">
         <SectionLabel label="Initialization" />
-        <h2 className="font-headline-lg-mobile text-headline-lg-mobile md:font-semibold md:text-3xl font-bold text-on-surface tracking-tight">
+        <h2 className="text-xl sm:font-headline-lg-mobile sm:text-headline-lg-mobile md:font-semibold md:text-3xl font-bold text-on-surface tracking-tight">
           Let's build something extraordinary together.
         </h2>
-        <p className="font-semibold text-on-surface-variant max-w-2xl">
+        <p className="text-xs sm:text-base font-normal sm:font-semibold text-on-surface-variant max-w-2xl leading-relaxed">
           Have a project in mind or want to explore a collaboration? Pick the
           channel that works best for you — I&apos;m always open to meaningful
           conversations.
@@ -66,21 +66,26 @@ export const ContactSection: React.FC = () => {
       </div>
 
       {/* ── 12-col grid ─────────────────────────────────── */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-6 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-x-6 lg:gap-y-0 items-start">
         {/* ── Left column (col-span-5) ──────────────────── */}
         <div className="lg:col-span-5 flex flex-col gap-4">
           {/* Box 1 — Priority Direct Channels */}
-          <div className="p-6 rounded-2xl bg-surface-container-low shadow-md flex flex-col gap-4">
+          <div className="p-4 sm:p-6 rounded-2xl bg-surface-container-low shadow-md flex flex-col gap-3.5 sm:gap-4">
             {/* Header */}
-            <div className="flex items-center gap-4">
-              <StatusPip color="primary" />
-              <span className="font-semibold text-on-surface font-body-md text-body-md">
-                Priority Direct Channels
+            <div className="flex items-center justify-between sm:justify-start gap-4">
+              <div className="flex items-center gap-2 sm:gap-4">
+                <StatusPip color="primary" />
+                <span className="font-semibold text-xs sm:text-body-md text-on-surface font-body-md">
+                  Priority Direct Channels
+                </span>
+              </div>
+              <span className="sm:hidden font-mono text-[10px] text-outline">
+                ⚡ Avg. response: &lt; 24h
               </span>
             </div>
 
             {/* Body text */}
-            <p className="font-medium text-sm text-on-surface-variant">
+            <p className="font-normal sm:font-medium text-xs sm:text-sm text-on-surface-variant leading-relaxed">
               For fastest response, reach me directly through WhatsApp or email.
               I monitor these channels daily and typically reply within a few
               hours during business hours.
@@ -91,7 +96,7 @@ export const ContactSection: React.FC = () => {
               href="https://wa.me/6281234567890"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-4 px-4 py-4 rounded-xl bg-primary-container text-on-primary font-semibold hover:opacity-95 transition-all shadow-md"
+              className="w-full h-12 sm:h-auto flex items-center justify-center gap-2 sm:gap-4 px-4 py-3 sm:py-4 rounded-xl bg-primary-container text-on-primary text-sm sm:text-base font-semibold hover:opacity-95 transition-all shadow-md"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,39 +111,17 @@ export const ContactSection: React.FC = () => {
 
             {/* Contact Channel */}
             <ContactChannel label="Direct Email" value="hello@oktadaffa.dev" />
-
-            {/* Footer row */}
-            {/* <div className="flex items-center justify-between pt-2">
-              <div className="flex items-center gap-space-xs text-on-surface-variant font-code-md text-code-md">
-                <span className="material-symbols-outlined text-base leading-none text-primary">
-                  bolt
-                </span>
-                <span>Avg. response: &lt; 24h</span>
-              </div>
-              <div className="flex items-center gap-space-xs">
-                <IconButton
-                  icon="code"
-                  label="GitHub"
-                  href="https://github.com/oktadaffa"
-                />
-                <IconButton
-                  icon="work"
-                  label="LinkedIn"
-                  href="https://linkedin.com/in/oktadaffa"
-                />
-              </div>
-            </div> */}
           </div>
 
           {/* Box 2 — Primary Timezone */}
-          <div className="p-6 rounded-2xl bg-surface-container-low shadow-md flex flex-col gap-4">
+          <div className="p-4 sm:p-6 rounded-2xl bg-surface-container-low shadow-md flex flex-col gap-3 sm:gap-4">
             {/* Header */}
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 sm:gap-4">
                 <span className="material-symbols-outlined text-base leading-none text-primary">
                   public
                 </span>
-                <span className="font-semibold text-on-surface font-body-md text-body-md">
+                <span className="font-semibold text-xs sm:text-body-md text-on-surface font-body-md">
                   Primary Timezone
                 </span>
               </div>
@@ -147,7 +130,7 @@ export const ContactSection: React.FC = () => {
 
             {/* Map visual */}
             <div
-              className="w-full h-32 rounded-xl bg-surface-container-highest relative flex items-center justify-center overflow-hidden"
+              className="w-full h-24 sm:h-32 rounded-xl bg-surface-container-highest relative flex items-center justify-center overflow-hidden"
               style={{
                 backgroundImage: `url(${contactImg})`,
                 backgroundSize: "cover",
@@ -158,12 +141,12 @@ export const ContactSection: React.FC = () => {
               <div className="absolute inset-0 bg-surface/60" />
 
               {/* Badge */}
-              <div className="relative flex items-center gap-4 px-4 py-2 rounded-full bg-surface-container/90 border border-surface-container-high shadow-md">
-                <span className="relative flex h-2.5 w-2.5">
+              <div className="relative flex items-center gap-2 sm:gap-4 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-surface-container/90 border border-surface-container-high shadow-md">
+                <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
+                  <span className="relative inline-flex h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-primary" />
                 </span>
-                <span className="font-code-md text-code-md text-on-surface font-semibold">
+                <span className="font-code-md text-[11px] sm:text-code-md text-on-surface font-semibold">
                   Current Base: Jakarta, ID
                 </span>
               </div>
@@ -172,17 +155,17 @@ export const ContactSection: React.FC = () => {
         </div>
 
         {/* ── Right column (col-span-7) — Dispatch Message form ── */}
-        <div className="lg:col-span-7 bg-surface-container-low rounded-2xl p-6 shadow-md flex flex-col gap-4">
+        <div className="lg:col-span-7 bg-surface-container-low rounded-2xl p-4 sm:p-6 shadow-md flex flex-col gap-3.5 sm:gap-4">
           {/* Card header */}
           <div className="flex items-center justify-between">
-            <h3 className="font-headline-sm text-headline-sm font-semibold text-on-surface">
+            <h3 className="text-sm sm:font-headline-sm sm:text-headline-sm font-bold sm:font-semibold text-on-surface">
               Dispatch Message
             </h3>
             <div className="flex items-center gap-space-xs">
-              <span className="material-symbols-outlined text-base leading-none text-primary">
+              <span className="material-symbols-outlined text-xs sm:text-base leading-none text-primary">
                 lock
               </span>
-              <span className="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant">
+              <span className="font-label-caps text-[10px] sm:text-label-caps uppercase tracking-widest text-on-surface-variant">
                 E2E Encrypted
               </span>
             </div>
@@ -191,11 +174,11 @@ export const ContactSection: React.FC = () => {
           {/* Form */}
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-3.5 sm:gap-4"
             noValidate
           >
             {/* 2-col name + email */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
               <FormField
                 id="contact-name"
                 type="text"
@@ -240,14 +223,15 @@ export const ContactSection: React.FC = () => {
             />
 
             {/* Submit row */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-2">
-              <p className="font-medium text-sm text-on-surface-variant ">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-6 pt-1 sm:pt-2">
+              <p className="font-normal sm:font-medium text-xs sm:text-sm text-on-surface-variant">
                 Your message is transmitted securely. No spam — ever.
               </p>
               <Button
                 variant="primary"
                 size="md"
                 type="submit"
+                className="w-full sm:w-auto justify-center"
                 // icon="send"
                 // iconPosition="right"
                 disabled={isSubmitting}

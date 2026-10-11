@@ -58,7 +58,7 @@ const ProjectCard = ({ project, onViewDetails }: ProjectCardProps) => {
       </div>
 
       {/* Image */}
-      <div className="relative w-full h-48 bg-surface-container-highest overflow-hidden">
+      <div className="relative w-full h-40 sm:h-48 bg-surface-container-highest overflow-hidden">
         <img
           src={image}
           alt={title}
@@ -67,17 +67,17 @@ const ProjectCard = ({ project, onViewDetails }: ProjectCardProps) => {
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/70 via-transparent to-transparent pointer-events-none" />
         {/* Status label */}
-        <span className="absolute bottom-2 left-3 font-medium text-sm text-on-surface bg-surface-container-low/90 backdrop-blur-sm px-2 py-0.5 rounded">
+        <span className="absolute bottom-2 left-3 font-medium text-xs sm:text-sm text-on-surface bg-surface-container-low/90 backdrop-blur-sm px-2 py-0.5 rounded">
           {status}
         </span>
       </div>
 
       {/* Content */}
-      <div className="p-4 flex flex-col gap-2 flex-1">
-        <h3 className="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+      <div className="p-3.5 sm:p-4 flex flex-col gap-2 flex-1">
+        <h3 className="text-sm sm:font-headline-sm sm:text-headline-sm font-bold sm:font-semibold text-on-surface group-hover:text-primary transition-colors">
           {title}
         </h3>
-        <p className="text-body-md font-body-md text-on-surface-variant line-clamp-3">
+        <p className="text-xs sm:text-body-md sm:font-body-md text-on-surface-variant leading-relaxed line-clamp-3">
           {description}
         </p>
         {/* Tags row */}
@@ -89,7 +89,7 @@ const ProjectCard = ({ project, onViewDetails }: ProjectCardProps) => {
       </div>
 
       {/* Footer */}
-      <div className="px-4 pb-4 pt-0 flex items-center justify-between">
+      <div className="px-3.5 sm:px-4 pb-3.5 sm:pb-4 pt-0 flex items-center justify-between">
         <Button
           variant="primary"
           size="sm"
@@ -140,7 +140,7 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
       aria-modal="true"
       aria-label={project?.title ?? "Project details"}
       className={[
-        "fixed inset-0 z-50 p-4 bg-surface-container-lowest/80 backdrop-blur-md",
+        "fixed inset-0 z-50 p-3 sm:p-4 bg-surface-container-lowest/80 backdrop-blur-md",
         "transition-opacity duration-200",
         isOpen
           ? "flex items-center justify-center opacity-100"
@@ -150,12 +150,12 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
     >
       {project && (
         <div
-          className="relative w-full max-w-4xl max-h-[90vh] bg-surface-container-low rounded-2xl shadow-2xl overflow-y-auto flex flex-col z-10"
+          className="relative w-full max-w-4xl max-h-[85vh] sm:max-h-[90vh] bg-surface-container-low rounded-2xl shadow-2xl overflow-y-auto flex flex-col z-10"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Sticky header */}
           <div className="sticky top-0 z-20 flex items-center justify-between px-4 py-3 bg-surface-container-low border-b border-surface-container-high/60 backdrop-blur-sm">
-            <h2 className="font-semibold text-lg text-on-surface truncate pr-4">
+            <h2 className="font-semibold text-base sm:text-lg text-on-surface truncate pr-4">
               {project.title}
             </h2>
             <button
@@ -170,9 +170,9 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
           </div>
 
           {/* Body */}
-          <div className="flex flex-col gap-6 p-4">
+          <div className="flex flex-col gap-5 sm:gap-6 p-4">
             {/* Hero image */}
-            <div className="relative w-full h-64 rounded-xl overflow-hidden bg-surface-container-highest">
+            <div className="relative w-full h-44 sm:h-64 rounded-xl overflow-hidden bg-surface-container-highest">
               <img
                 src={project.image}
                 alt={project.title}
@@ -182,7 +182,7 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
             </div>
 
             {/* Metric cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
               {(
                 [
                   {
@@ -207,7 +207,7 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
               ).map(({ key, label, icon, color }) => (
                 <div
                   key={key}
-                  className="p-4 rounded-xl bg-surface-container-high flex flex-col gap-2 shadow-sm"
+                  className="p-3.5 sm:p-4 rounded-xl bg-surface-container-high flex flex-col gap-1.5 sm:gap-2 shadow-sm"
                 >
                   <div
                     className={`flex items-center gap-1.5 ${color === "primary" ? "text-primary" : "text-secondary"}`}
@@ -215,11 +215,11 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
                     {/* <span className="material-symbols-outlined text-[18px]">
                       {icon}
                     </span> */}
-                    <span className="font-medium uppercase tracking-wider text-on-surface-variant">
+                    <span className="text-xs sm:text-sm font-medium uppercase tracking-wider text-on-surface-variant">
                       {label}
                     </span>
                   </div>
-                  <span className="font-label-md text-label-md text-on-surface leading-snug">
+                  <span className="text-sm sm:font-label-md sm:text-label-md text-on-surface leading-snug">
                     {project.meta[key]}
                   </span>
                 </div>
@@ -228,26 +228,26 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
 
             {/* Description */}
             <div>
-              <h3 className="font-title-md text-title-md text-on-surface mb-2">
+              <h3 className="font-semibold sm:font-title-md text-sm sm:text-title-md text-on-surface mb-1.5 sm:mb-2">
                 About
               </h3>
-              <p className="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+              <p className="text-xs sm:text-body-md sm:font-body-md text-on-surface-variant leading-relaxed">
                 {project.description}
               </p>
             </div>
 
             {/* Challenges */}
             <div>
-              <h3 className="font-title-md text-title-md text-on-surface mb-2">
+              <h3 className="font-semibold sm:font-title-md text-sm sm:text-title-md text-on-surface mb-1.5 sm:mb-2">
                 Engineering Challenges
               </h3>
-              <ul className="flex flex-col gap-4">
+              <ul className="flex flex-col gap-3 sm:gap-4">
                 {project.challenges.map((challenge, i) => (
-                  <li key={i} className="flex gap-4 items-start">
+                  <li key={i} className="flex gap-3 sm:gap-4 items-start">
                     {/* <span className="material-symbols-outlined text-[18px] text-primary mt-0.5 shrink-0">
                           check_circle
                         </span> */}
-                    <span className=" font-medium text-on-surface-variant leading-relaxed">
+                    <span className="text-xs sm:text-base font-medium text-on-surface-variant leading-relaxed">
                       {challenge}
                     </span>
                   </li>
@@ -256,7 +256,7 @@ const ProjectDetailModal = ({ project, onClose }: ProjectDetailModalProps) => {
             </div>
 
             {/* Footer action links */}
-            <div className="flex items-center gap-4 pt-4 border-t border-surface-container-high/60">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-4 border-t border-surface-container-high/60">
               <Button
                 variant="primary"
                 size="md"
@@ -300,21 +300,21 @@ export const ProjectsSection = () => {
     <>
       <section id="projects" className="w-full py-6 scroll-mt-24">
         {/* Section header + filter row */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 mb-4 sm:mb-6">
           {/* Header */}
-          <div className="flex flex-col gap-y-2">
+          <div className="flex flex-col gap-y-1.5 sm:gap-y-2">
             <SectionLabel label="Selected Work" color="primary" />
-            <h2 className="font-semibold text-3xl text-on-surface">
+            <h2 className="font-bold sm:font-semibold text-xl sm:text-3xl text-on-surface tracking-tight">
               Featured <span className="text-primary">Projects</span>
             </h2>
-            <p className="text-base font-medium text-on-surface-variant max-w-full">
+            <p className="text-xs sm:text-base font-medium text-on-surface-variant max-w-full leading-relaxed">
               A curated selection of production-grade systems — from cloud
               orchestrators to open-source component engines.
             </p>
           </div>
 
           {/* Filter tabs */}
-          <div className="flex items-center gap-1.5 p-1.5 rounded-xl bg-surface-container-low shadow-sm self-start sm:self-auto shrink-0">
+          <div className="flex items-center gap-1.5 p-1.5 rounded-xl bg-surface-container-low shadow-sm self-start sm:self-auto shrink-0 max-w-full overflow-x-auto">
             {FILTER_TABS.map((tab) => {
               const isActive = activeFilter === tab.value;
               return (
@@ -322,7 +322,7 @@ export const ProjectsSection = () => {
                   key={tab.value}
                   onClick={() => setActiveFilter(tab.value)}
                   className={[
-                    "px-3 py-1 rounded-lg font-code-md text-md transition-all duration-150",
+                    "px-3 py-1 rounded-lg font-code-md text-xs sm:text-md transition-all duration-150 shrink-0",
                     isActive
                       ? "bg-surface-container-high text-primary font-medium shadow-sm"
                       : "text-on-surface-variant hover:text-on-surface",

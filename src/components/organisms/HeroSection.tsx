@@ -19,22 +19,22 @@ const TerminalWindow: React.FC<TerminalWindowProps> = ({
 }) => (
   <div className="rounded-xl border border-surface-container-highest bg-surface-container-lowest overflow-hidden shadow-2xl">
     {/* Title bar */}
-    <div className="flex items-center justify-between px-6 py-2 bg-surface-container border-b border-surface-container-highest">
-      <div className="flex items-center gap-2">
-        <span className="w-3 h-3 rounded-full bg-error/70" />
-        <span className="w-3 h-3 rounded-full bg-tertiary/50" />
-        <span className="w-3 h-3 rounded-full bg-primary/60" />
+    <div className="flex items-center justify-between px-3.5 sm:px-6 py-2 bg-surface-container border-b border-surface-container-highest">
+      <div className="flex items-center gap-1.5 sm:gap-2">
+        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-error/70" />
+        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-tertiary/50" />
+        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-primary/60" />
       </div>
-      <span className="font-code-md text-code-md text-on-surface-variant">
+      <span className="font-code-md text-[11px] sm:text-code-md text-on-surface-variant">
         {filename}
       </span>
-      <span className="font-code-md text-code-md text-on-surface-variant">
+      <span className="font-code-md text-[10px] sm:text-code-md text-on-surface-variant">
         {nodeVersion}
       </span>
     </div>
 
     {/* Code body */}
-    <pre className="px-6 py-4 font-mono text-[13px] leading-[1.7] overflow-x-auto text-on-surface-variant">
+    <pre className="px-3.5 sm:px-6 py-3.5 sm:py-4 font-mono text-[11px] sm:text-[13px] leading-5 sm:leading-[1.7] overflow-x-auto text-on-surface-variant">
       <code>
         {/* Line 1 */}
         <span className="text-tertiary">import</span>
@@ -156,11 +156,9 @@ const TerminalWindow: React.FC<TerminalWindowProps> = ({
     </pre>
 
     {/* Status bar */}
-    <div className="flex items-center justify-between px-6 py-2 bg-surface-container border-t border-surface-container-highest">
-      <span className="font-medium text-sm text-primary">{statusLeft}</span>
-      <span className="font-medium text-sm text-on-surface-variant">
-        {statusRight}
-      </span>
+    <div className="flex items-center justify-between px-3.5 sm:px-6 py-2 bg-surface-container border-t border-surface-container-highest text-[10px] sm:text-sm">
+      <span className="font-medium text-primary">{statusLeft}</span>
+      <span className="font-medium text-on-surface-variant">{statusRight}</span>
     </div>
   </div>
 );
@@ -179,16 +177,16 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="w-full pt-6 pb-10 flex flex-col justify-center "
+      className="w-full pt-4 sm:pt-6 pb-8 sm:pb-10 flex flex-col justify-center"
     >
-      <div className="max-w-[1440px] mx-auto  w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+      <div className="max-w-[1440px] mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-gutter items-center">
           {/* ── Left col ──────────────────────────────────────── */}
-          <div className="lg:col-span-7 flex flex-col gap-y-10">
+          <div className="lg:col-span-7 flex flex-col gap-y-5 sm:gap-y-10">
             {/* Status badge */}
-            <div className="inline-flex items-center gap-x-2 self-start px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+            <div className="inline-flex items-center gap-x-2 self-start px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/20">
               <StatusPip color="primary" animate />
-              <span className="font-medium text-sm text-primary">
+              <span className="font-medium text-xs sm:text-sm text-primary">
                 Available for high-impact roles &amp; contracts
               </span>
             </div>
@@ -196,8 +194,8 @@ export const HeroSection: React.FC = () => {
             {/* Headline */}
             <h1
               className={[
-                "font-geist font-bold text-6xl text-on-surface",
-                "tracking-tight leading-[1.08]",
+                "font-geist font-bold text-3xl sm:text-5xl lg:text-6xl text-on-surface",
+                "tracking-tight leading-tight lg:leading-[1.08]",
               ].join(" ")}
             >
               Architecting{" "}
@@ -212,7 +210,7 @@ export const HeroSection: React.FC = () => {
             </h1>
 
             {/* Subheadline */}
-            <p className="font-geist font-normal text-body-lg text-on-surface-variant max-w-[52ch]">
+            <p className="font-geist font-normal text-sm sm:text-body-lg text-on-surface-variant max-w-[52ch] leading-relaxed">
               Full-stack engineer crafting production-grade applications — from
               pixel-perfect interfaces to distributed back-end architectures —
               with a relentless focus on performance, reliability, and developer
@@ -220,13 +218,13 @@ export const HeroSection: React.FC = () => {
             </p>
 
             {/* CTA row */}
-            <div className="flex flex-wrap items-center gap-x-4">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-x-4 w-full sm:w-auto">
               {/* Primary CTA */}
               <a
                 href="#projects"
                 className={[
-                  "inline-flex items-center gap-x-2",
-                  "px-8 py-4 rounded-lg",
+                  "inline-flex items-center justify-center gap-x-2",
+                  "w-full sm:w-auto h-12 sm:h-auto px-8 py-4 rounded-xl sm:rounded-lg",
                   "bg-primary text-on-primary font-semibold text-sm",
                   "hover:bg-primary-fixed-dim transition-colors",
                 ].join(" ")}
@@ -241,8 +239,8 @@ export const HeroSection: React.FC = () => {
               <a
                 href="#contact"
                 className={[
-                  "inline-flex items-center gap-x-2",
-                  "px-8 py-4 rounded-lg",
+                  "inline-flex items-center justify-center gap-x-2",
+                  "w-full sm:w-auto h-12 sm:h-auto px-8 py-4 rounded-xl sm:rounded-lg",
                   "border border-surface-container-highest text-on-surface-variant",
                   "hover:bg-surface-container-low hover:text-on-surface transition-colors font-semibold text-sm",
                 ].join(" ")}
@@ -258,9 +256,9 @@ export const HeroSection: React.FC = () => {
                 type="button"
                 onClick={handleCopyEmail}
                 className={[
-                  "inline-flex items-center gap-x-2",
-                  "px-8 py-4 rounded-lg",
-                  "border border-surface-container-highest font-code-md text-code-md",
+                  "inline-flex items-center justify-center gap-x-2",
+                  "w-full sm:w-auto h-11 sm:h-auto px-4 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-lg",
+                  "border border-surface-container-highest font-code-md text-xs sm:text-code-md",
                   copied
                     ? "text-primary border-primary/30 bg-primary/10"
                     : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low",
@@ -275,7 +273,7 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Metrics grid */}
-            <div className="grid grid-cols-2 gap-x-10 max-w-100">
+            <div className="grid grid-cols-2 gap-3 sm:gap-x-10 max-w-100">
               <MetricChip value="5+" label="Years Experience" color="primary" />
               <MetricChip value="32+" label="Shipped Apps" color="secondary" />
             </div>
